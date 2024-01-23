@@ -16,30 +16,22 @@ type GameProps = {
 function Game({gbStates, wordList, setGBState, dFactor, restart, quit}: GameProps) {
     const wordChars = gbStates.randWord.split("");
 
+    const getClass = (char:string, index:number) => {
+        let charClass: string = "";
+
+        if(index < gbStates.gameInput.length && gbStates.gameInput.length > 0){
+            if(char == gbStates.gameInput[index])
+                charClass = "correct";
+            else
+                charClass = "incorrect";
+        } 
+        return charClass;
+    }
+
     const handleGameInput = (value: string) => {
         setGBState({type:"setGameInput", payload:value.toUpperCase()})
-        const wlen = gbStates.randWord.length;
-        const inpWord = value;
-        const inpLen = inpWord.length;
-    
-        // remove colors before in order to avoid coloring of word after new word is shown
-        for(let i=0; i<wlen; i++){
-          document.getElementById(String(i))!.classList.remove('correct', 'incorrect');
-        }
-    
-        // give colors based on input
-        for(let i=0; i<inpLen; i++){
-          if(inpWord[i].toUpperCase() === gbStates.randWord[i]){
-            document.getElementById(String(i))!.classList.add('correct');
-          } else {
-            document.getElementById(String(i))!.classList.add('incorrect');
-          }
-        }
+
         if (value.toUpperCase() === gbStates.randWord ) {
-          // clear color before new word is selected
-          for(let i=0; i<wlen; i++){
-            document.getElementById(String(i))!.classList.remove('correct','incorrect');
-          }
           setGBState({type:"setWord", data: wordList, payload: dFactor})
           setGBState({type:"setGameInput", payload: ""})
         }
@@ -52,7 +44,10 @@ function Game({gbStates, wordList, setGBState, dFactor, restart, quit}: GameProp
                 <h1>{gbStates.wordTimer}s</h1>
             </div>
             <div className="word-display">
-                {wordChars.map((char,index) => <h2 key={index} id={String(index)} className="char">{char}</h2>)}
+                {wordChars.map((char,index) => {
+                    const charClass = getClass(char,index);
+                    return(<h2 key={index} id={String(index)} className={charClass}>{char}</h2>)
+                })}
             </div>
             <input 
             type="text" 
