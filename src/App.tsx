@@ -11,7 +11,7 @@ const initialStates: AppStates = {
   level: "Easy",
   dFactor: 1,
   wordList: SetWordlist("Easy"),
-  randNum: Math.floor(Math.random() * SetWordlist("Easy").length)
+  randNum: Math.floor(Math.random() * SetWordlist("Easy").length),
 };
 
 function reducer(state: AppStates, action: AppStateActions) {

@@ -1,14 +1,14 @@
 import { GameBoardProps, GameBoardStates } from "./types/GameBoard.type";
-import avatar from "../assets/images/avatar.png"
-import game_control from "../assets/images/game-control.png"
+import avatar from "../assets/images/avatar.png";
+import game_control from "../assets/images/game-control.png";
 import useGameHandler from "../assets/service/useGameHandler";
 import Game from "./Game";
 import TopScore from "./TopScore";
-import "../assets/styles/GameBoard.css"
+import "../assets/styles/GameBoard.css";
 
-function GameBoard({appStates}: GameBoardProps) {
+function GameBoard({ appStates }: GameBoardProps) {
   const wordList = appStates.wordList;
-  
+
   const initialGBStates: GameBoardStates = {
     randWord: wordList[appStates.randNum].toUpperCase(),
     gameInput: "",
@@ -16,28 +16,32 @@ function GameBoard({appStates}: GameBoardProps) {
     wordTimer: wordList[appStates.randNum].length,
     curScore: {
       scoreTimer: 0,
-      scoreDisplay: ""
+      scoreDisplay: "",
     },
     topScore: {
       scoreTimer: 0,
       scoreDisplay: "",
-      gameNo: ""
+      gameNo: "",
     },
-    allScores: []
-  }
+    allScores: [],
+  };
 
   const [gbStates, setGBState] = useGameHandler(initialGBStates);
 
   const restart = () => {
-    setGBState({type: "setWord", payload: appStates.dFactor, data: appStates.wordList});
-    setGBState({type: "setScore", payload: 0});
-    setGBState({type: "setGameInput", payload: ""})
-    setGBState({type: "setGameMode"})
-  }
+    setGBState({
+      type: "setWord",
+      payload: appStates.dFactor,
+      data: appStates.wordList,
+    });
+    setGBState({ type: "setScore", payload: 0 });
+    setGBState({ type: "setGameInput", payload: "" });
+    setGBState({ type: "setGameMode" });
+  };
 
   const quit = () => {
     window.location.reload();
-  }
+  };
 
   return (
     <div className="game-container">

@@ -21,7 +21,7 @@ export type GameBoardStates = {
   allScores: {
     scoreTimer: number;
     scoreDisplay: string;
-    gameNo: string; 
+    gameNo: string;
   }[];
 };
 

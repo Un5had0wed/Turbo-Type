@@ -1,4 +1,4 @@
-import { FormEvent } from "react";
+import { FormEvent, useEffect, useRef } from "react";
 import logo from "../assets/images/logo.png";
 import { FormProps } from "./types/Form.type";
 import "../assets/styles/Form.css";
@@ -10,10 +10,17 @@ function Form({ appStates, setAppState }: FormProps) {
     { value: "Hard", text: "Hard" },
   ];
 
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (inputRef.current) inputRef.current.focus();
+  }, []);
+
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
 
-    if (appStates.userName != "") setAppState({ type: "setPageMode", payload: "Game" });
+    if (appStates.userName != "")
+      setAppState({ type: "setPageMode", payload: "Game" });
   };
 
   return (
@@ -37,6 +44,7 @@ function Form({ appStates, setAppState }: FormProps) {
           }}
           placeholder="Enter your name"
           className="form__inp"
+          ref={inputRef}
           required
         />
 

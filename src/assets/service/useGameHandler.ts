@@ -37,7 +37,7 @@ function reducer(
     case "setGameMode":
       return {
         ...state,
-        gameOn: !(state.gameOn),
+        gameOn: !state.gameOn,
       };
     case "setWord": {
       const j = Math.floor(Math.random() * action.data!.length);
@@ -77,13 +77,13 @@ function reducer(
         },
       };
     case "setScore":
-        return {
-            ...state,
-            curScore: {
-                scoreTimer: action.payload as number,
-                scoreDisplay: getScoreDisplay(action.payload as number)
-            }
-        }
+      return {
+        ...state,
+        curScore: {
+          scoreTimer: action.payload as number,
+          scoreDisplay: getScoreDisplay(action.payload as number),
+        },
+      };
     case "incrementScore":
       return {
         ...state,
@@ -102,7 +102,9 @@ function reducer(
   }
 }
 
-function useGameHandler(states: GameBoardStates): [GameBoardStates, React.Dispatch<GameBoardActions>] {
+function useGameHandler(
+  states: GameBoardStates
+): [GameBoardStates, React.Dispatch<GameBoardActions>] {
   const [gameStates, dispatch] = useReducer(reducer, states);
 
   // timer for word

@@ -1,109 +1,103 @@
 .game-container {
-    width: 100%;
-    padding: 50px 0px;
-    color: white;
-    font-family: 'Rowdies', sans-serif;
+  width: 100%;
+  padding: 50px 0px;
+  color: white;
+  font-family: "Rowdies", sans-serif;
 }
 
 .top {
-    width: 90%;
-    display: flex;
-    justify-content: space-between;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 50px;
-    animation: neon .08s ease-in-out infinite alternate;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50px;
+  animation: neon 0.08s ease-in-out infinite alternate;
 }
 
 .profile {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .profile-container {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .profile-container__logo {
-    height: 50px;
-    width: 50px;
-    margin: 10px 20px;
-    filter: drop-shadow(0 0 1.5rem rgba(242, 30, 224, 1));
+  height: 50px;
+  width: 50px;
+  margin: 10px 20px;
+  filter: drop-shadow(0 0 1.5rem rgba(242, 30, 224, 1));
 }
 
 .profile-container__content {
-    display: inline;
-    font-size: 25px;
+  display: inline;
+  font-size: 25px;
 }
 
 .score {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .score-container {
-    display: flex;
-    align-items: center;
-    flex-grow: 1;
-    font-size: 25px;
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  font-size: 25px;
 }
 
 .bottom {
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 50px;
-    display: flex;
-    align-items: center;
-    animation: neon .08s ease-in-out infinite alternate;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50px;
+  display: flex;
+  align-items: center;
+  animation: neon 0.08s ease-in-out infinite alternate;
 }
 
 .score-board {
-    padding: 20px;
-    height: 35vh;
-    width: 12%;
-    text-align: center;
-    border-color: white;
-    border: 2px;
-    border-style: solid;
-    border-radius: 5px;
-    overflow: scroll;
+  padding: 20px;
+  height: 35vh;
+  width: 12%;
+  text-align: center;
+  border-color: white;
+  border: 2px;
+  border-style: solid;
+  border-radius: 5px;
+  overflow: scroll;
 }
 
 .score-board__heading {
-    font-size: 20px;
-    margin-bottom: 20px;
+  font-size: 20px;
+  margin-bottom: 20px;
 }
 
 .scores-li {
-    list-style: none;
-    margin: 10px 0px;
+  list-style: none;
+  margin: 10px 0px;
 }
 
 .game-area {
-    flex-grow: 1;
-    text-align: center;
+  flex-grow: 1;
+  text-align: center;
 }
 
 @keyframes neon {
-    from {
-        text-shadow:
-        0 0 6px rgba(202,228,225,0.92),
-        0 0 30px rgba(202,228,225,0.34),
-        0 0 12px rgba(242, 30, 207, 0.52),
-        0 0 21px rgba(242, 30, 224, 0.92),
-        0 0 34px rgba(242, 30, 224, 0.78),
-        0 0 54px rgba(242, 30, 207, 0.92);
-    }
-    to {
-        text-shadow:
-        0 0 6px rgba(202,228,225,0.98),
-        0 0 30px rgba(202,228,225,0.42),
-        0 0 12px rgba(242, 30, 147, 0.58),
-        0 0 22px rgba(242, 30, 196, 0.84),
-        0 0 38px rgba(242, 30, 224, 0.88),
-        0 0 60px rgb(242, 30, 214);
-    }
+  from {
+    text-shadow: 0 0 6px rgba(202, 228, 225, 0.92),
+      0 0 30px rgba(202, 228, 225, 0.34), 0 0 12px rgba(242, 30, 207, 0.52),
+      0 0 21px rgba(242, 30, 224, 0.92), 0 0 34px rgba(242, 30, 224, 0.78),
+      0 0 54px rgba(242, 30, 207, 0.92);
+  }
+  to {
+    text-shadow: 0 0 6px rgba(202, 228, 225, 0.98),
+      0 0 30px rgba(202, 228, 225, 0.42), 0 0 12px rgba(242, 30, 147, 0.58),
+      0 0 22px rgba(242, 30, 196, 0.84), 0 0 38px rgba(242, 30, 224, 0.88),
+      0 0 60px rgb(242, 30, 214);
+  }
 }
