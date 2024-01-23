@@ -1,0 +1,122 @@
+.game-on {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.game-input {
+    width: 15%;
+    height: 2.5rem;
+    padding: 0px 10px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: large;
+    margin: 20px
+}
+
+.game-timer {
+    height: 150px;
+    width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-color: white;
+    border-style: solid;
+    border-radius: 50%;
+    border-width: 10px;
+}
+
+.word-display {
+    font-size: 50px;
+    margin: 20px 0px;
+    display: flex;
+}
+
+.game-over{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.btn-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn {
+    align-items: center;
+    margin: 10px 0px;
+    text-decoration: none;
+    color: white;
+}
+
+.btn__logo {
+    height: 50px;
+    width: 50px;
+    margin: 10px;
+    filter: drop-shadow(0 0 1.5rem rgba(242, 30, 224, 1));
+}
+
+.btn__content {
+    display: inline;
+}
+
+.score-display {
+    margin: 20px 0px;
+}
+
+.score-display__header {
+    font-size: 50px;
+}
+
+.correct {
+    animation: neonc .08s ease-in-out infinite alternate;
+}
+
+.incorrect {
+    animation: neonic .08s ease-in-out infinite alternate;
+}
+
+@keyframes neonc {
+    from {
+        text-shadow:
+        0 0 6px rgba(202,228,225,0.92),
+        0 0 30px rgba(202,228,225,0.34),
+        0 0 12px rgba(62, 242, 30, 0.52),
+        0 0 21px rgba(83, 242, 30, 0.92),
+        0 0 34px rgba(30, 242, 72, 0.78),
+        0 0 54px rgba(83, 242, 30, 0.92);
+    }
+    to {
+        text-shadow:
+        0 0 6px rgba(202,228,225,0.98),
+        0 0 30px rgba(202,228,225,0.42),
+        0 0 12px rgba(51, 242, 30, 0.58),
+        0 0 22px rgba(30, 242, 44, 0.84),
+        0 0 38px rgba(48, 242, 30, 0.88),
+        0 0 60px rgb(55, 242, 30);
+    }
+}
+
+@keyframes neonic {
+    from {
+        text-shadow:
+        0 0 6px rgba(202,228,225,0.92),
+        0 0 30px rgba(202,228,225,0.34),
+        0 0 12px rgba(242, 30, 30, 0.52),
+        0 0 21px rgba(242, 72, 30, 0.92),
+        0 0 34px rgba(242, 55, 30, 0.78),
+        0 0 54px rgba(242, 69, 30, 0.92);
+    }
+    to {
+        text-shadow:
+        0 0 6px rgba(202,228,225,0.98),
+        0 0 30px rgba(202,228,225,0.42),
+        0 0 12px rgba(242, 30, 30, 0.58),
+        0 0 22px rgba(242, 55, 30, 0.84),
+        0 0 38px rgba(242, 108, 30, 0.88),
+        0 0 60px rgb(242, 65, 30);
+    }
+}

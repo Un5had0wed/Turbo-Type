@@ -1,0 +1,43 @@
+.top-score {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+}
+
+.top-score__container {
+    width: 12%;
+    padding: 20px;
+    text-align: center;
+    border-color: white;
+    border: 2px;
+    border-style: solid;
+    border-radius: 5px;
+}
+
+.top-score__container h3 {
+    font-size: 20px;
+    margin: 10px 0px;
+    animation: neon .08s ease-in-out infinite alternate;
+}
+
+@keyframes neon {
+    from {
+        text-shadow:
+        0 0 6px rgba(202,228,225,0.92),
+        0 0 30px rgba(202,228,225,0.34),
+        0 0 12px rgba(242, 30, 207, 0.52),
+        0 0 21px rgba(242, 30, 224, 0.92),
+        0 0 34px rgba(242, 30, 224, 0.78),
+        0 0 54px rgba(242, 30, 207, 0.92);
+    }
+    to {
+        text-shadow:
+        0 0 6px rgba(202,228,225,0.98),
+        0 0 30px rgba(202,228,225,0.42),
+        0 0 12px rgba(242, 30, 147, 0.58),
+        0 0 22px rgba(242, 30, 196, 0.84),
+        0 0 38px rgba(242, 30, 224, 0.88),
+        0 0 60px rgb(242, 30, 214);
+    }
+}

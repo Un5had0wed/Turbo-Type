@@ -1,0 +1,86 @@
+.form {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40%;
+    height: 100vh;
+    text-align: center;
+}
+
+.form__logo {
+    height: 150px;
+    width: 150px;
+    filter: drop-shadow(0 0 1.5rem rgba(242, 30, 224, 1));
+}
+
+.heading__grp {
+    margin-bottom: 3.5rem;
+}
+
+.form__heading {
+    font-family: 'Rowdies', sans-serif;
+    color: white;
+}
+
+.form__heading--main {
+    font-size: 90px;
+    animation: neon .08s ease-in-out infinite alternate;
+}
+
+.form__heading--tagline {
+    font-size: 20px;
+    animation: neon .08s ease-in-out infinite alternate;
+}
+
+@keyframes neon {
+    from {
+        text-shadow:
+        0 0 6px rgba(202,228,225,0.92),
+        0 0 30px rgba(202,228,225,0.34),
+        0 0 12px rgba(242, 30, 207, 0.52),
+        0 0 21px rgba(242, 30, 224, 0.92),
+        0 0 34px rgba(242, 30, 224, 0.78),
+        0 0 54px rgba(242, 30, 207, 0.92);
+    }
+    to {
+        text-shadow:
+        0 0 6px rgba(202,228,225,0.98),
+        0 0 30px rgba(202,228,225,0.42),
+        0 0 12px rgba(242, 30, 147, 0.58),
+        0 0 22px rgba(242, 30, 196, 0.84),
+        0 0 38px rgba(242, 30, 224, 0.88),
+        0 0 60px rgb(242, 30, 214);
+    }
+}
+
+.form__inp {
+    height: 3rem;
+    width: 40%;
+    display: block;
+    margin: 30px auto;
+    border-radius: 10px;
+    font-size: large;
+    text-align: center;
+}
+
+.form__select {
+    height: 3rem;
+    width: 40%;
+    display: block;
+    margin: 30px auto;
+    text-align-last: center ;
+    border-radius: 10px;
+    font-size: large;
+}
+
+.form__btn {
+    height: 3rem;
+    width: 20%;
+    margin: 20px 0px;
+    border-radius: 15px;
+    font-size: large;
+}
+
+::placeholder {
+    text-align: center; 
+}
