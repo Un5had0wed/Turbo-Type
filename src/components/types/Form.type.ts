@@ -1,6 +1,6 @@
-import { States, StateActions } from "./App.type";
+import { AppStates, AppStateActions } from "./App.type";
 
 export type FormProps = {
-    appStates: States
-    setAppState: React.Dispatch<StateActions>
+    appStates: AppStates
+    setAppState: React.Dispatch<AppStateActions>
 }
