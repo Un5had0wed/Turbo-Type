@@ -1,4 +1,6 @@
 import React, { useEffect, useReducer } from "react";
+import SetWordlist from "./SetWordlist";
+
 import {
   GameBoardStates,
   GameBoardActions,
@@ -40,13 +42,13 @@ function reducer(
         gameOn: !state.gameOn,
       };
     case "setWord": {
-      const j = Math.floor(Math.random() * action.data!.length);
+      const j = Math.floor(Math.random() * state.wordList.length);
 
       return {
         ...state,
-        randWord: action.data![j].toUpperCase(),
+        randWord: state.wordList[j].toUpperCase(),
         wordTimer: Math.ceil(
-          action.data![j].length / (action.payload as number)
+          state.wordList[j].length / state.dFactor
         ),
       };
     }
@@ -97,6 +99,42 @@ function reducer(
         ...state,
         gameInput: action.payload as string,
       };
+    case "incrementDifficulty":{
+      const f: number = state.dFactor + (action.payload as number);
+      let d: string;
+
+      if(f>=1 && f<1.5)
+        d = "Easy";
+      else if(f>=1.5 && f<2)
+        d = "Medium"
+      else 
+        d = "Hard"
+
+      if(d !== state.difficulty)
+        return {
+          ...state,
+          dFactor: f,
+          difficulty: d as "Easy" | "Medium" | "Hard"
+        }
+      else
+        return {
+          ...state,
+          dFactor: f,
+          difficulty: d as "Easy" | "Medium" | "Hard",
+          wordList: SetWordlist(d)
+        }
+    }
+    case "setDifficulty":
+      return {
+        ...state,
+        difficulty: action.payload as "Easy" | "Medium" | "Hard",
+        wordList: SetWordlist(action.payload as string)
+      }
+    case "setFactor":
+      return {
+        ...state,
+        dFactor: action.payload as number
+      }
     default:
       return state;
   }

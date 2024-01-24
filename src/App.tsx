@@ -10,7 +10,6 @@ const initialStates: AppStates = {
   userName: "",
   level: "Easy",
   dFactor: 1,
-  wordList: SetWordlist("Easy"),
   randNum: Math.floor(Math.random() * SetWordlist("Easy")?.length),
 };
 
@@ -32,7 +31,6 @@ function reducer(state: AppStates, action: AppStateActions) {
         level: action.payload as "Easy" | "Medium" | "Hard",
         dFactor:
           action.payload === "Hard" ? 2 : action.payload === "Medium" ? 1.5 : 1,
-        wordList: SetWordlist(action.payload),
         randNum: Math.floor(Math.random() * SetWordlist(action.payload).length),
       };
     default:

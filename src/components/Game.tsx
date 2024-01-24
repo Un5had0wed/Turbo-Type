@@ -6,18 +6,14 @@ import "../assets/styles/Game.css";
 
 type GameProps = {
   gbStates: GameBoardStates;
-  wordList: string[];
   setGBState: React.Dispatch<GameBoardActions>;
-  dFactor: number;
   restart: () => void;
   quit: () => void;
 };
 
 function Game({
   gbStates,
-  wordList,
   setGBState,
-  dFactor,
   restart,
   quit,
 }: GameProps) {
@@ -43,7 +39,8 @@ function Game({
     setGBState({ type: "setGameInput", payload: value.toUpperCase() });
 
     if (value.toUpperCase() === gbStates.randWord) {
-      setGBState({ type: "setWord", data: wordList, payload: dFactor });
+      setGBState({ type: "incrementDifficulty", payload: 0.01 })
+      setGBState({ type: "setWord" });
       setGBState({ type: "setGameInput", payload: "" });
     }
   };

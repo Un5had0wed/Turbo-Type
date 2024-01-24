@@ -6,6 +6,9 @@ export type GameBoardProps = {
 
 export type GameBoardStates = {
   randWord: string;
+  difficulty: "Easy" | "Medium" | "Hard";
+  dFactor: number;
+  wordList: string[];
   gameInput: string;
   gameOn: boolean;
   wordTimer: number;
@@ -34,7 +37,9 @@ export type GameBoardActions = {
     | "setScore"
     | "setTopScore"
     | "setAllScores"
-    | "incrementScore";
+    | "incrementScore"
+    | "incrementDifficulty"
+    | "setDifficulty"
+    | "setFactor"
   payload?: number | string;
-  data?: string[];
 };

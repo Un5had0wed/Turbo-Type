@@ -3,7 +3,6 @@ export type AppStates = {
   userName: string;
   level: "Easy" | "Medium" | "Hard";
   dFactor: number;
-  wordList: string[];
   randNum: number;
 };
 

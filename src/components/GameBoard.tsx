@@ -5,15 +5,19 @@ import useGameHandler from "../assets/service/useGameHandler";
 import Game from "./Game";
 import TopScore from "./TopScore";
 import "../assets/styles/GameBoard.css";
+import SetWordlist from "../assets/service/SetWordlist";
 
 function GameBoard({ appStates }: GameBoardProps) {
-  const wordList = appStates.wordList;
+  const wlist = SetWordlist(appStates.level);
 
   const initialGBStates: GameBoardStates = {
-    randWord: wordList[appStates.randNum].toUpperCase(),
+    difficulty: appStates.level,
+    dFactor: appStates.dFactor,
+    wordList: wlist,
+    randWord: wlist[appStates.randNum].toUpperCase(),
     gameInput: "",
     gameOn: true,
-    wordTimer: wordList[appStates.randNum].length,
+    wordTimer: wlist[appStates.randNum].length,
     curScore: {
       scoreTimer: 0,
       scoreDisplay: "",
@@ -29,11 +33,9 @@ function GameBoard({ appStates }: GameBoardProps) {
   const [gbStates, setGBState] = useGameHandler(initialGBStates);
 
   const restart = () => {
-    setGBState({
-      type: "setWord",
-      payload: appStates.dFactor,
-      data: appStates.wordList,
-    });
+    setGBState({ type: "setDifficulty", payload: appStates.level });
+    setGBState({ type: "setFactor", payload: appStates.dFactor });
+    setGBState({ type: "setWord" });
     setGBState({ type: "setScore", payload: 0 });
     setGBState({ type: "setGameInput", payload: "" });
     setGBState({ type: "setGameMode" });
@@ -61,7 +63,9 @@ function GameBoard({ appStates }: GameBoardProps) {
               src={game_control}
               alt="difficulty level"
             />
-            <h3 className="profile-container__content">{appStates.level}</h3>
+            <h3 className="profile-container__content">
+              {gbStates.difficulty}
+            </h3>
           </div>
         </div>
 
@@ -87,9 +91,7 @@ function GameBoard({ appStates }: GameBoardProps) {
         <div className="game-area">
           <Game
             gbStates={gbStates}
-            wordList={wordList}
             setGBState={setGBState}
-            dFactor={appStates.dFactor}
             restart={restart}
             quit={quit}
           />
