@@ -1,8 +1,8 @@
-import { render } from '@testing-library/react';
-import App from '../App';
+import { render, screen } from "@testing-library/react";
+import App from "../App";
 
-describe('App', () => {
-  it('should work as expected', () => {
-    render(<App />);
-  });
+test("Form being rendered on rendering app for the first time", () => {
+  render(<App />);
+  const title = screen.getByText("Turbo Type");
+  expect(title).toBeInTheDocument();
 });

@@ -20,7 +20,8 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
 
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "types": ["@testing-library/jest-dom", "node"]
   },
   "include": ["src", "src/declaration.d.ts"],
   "references": [{ "path": "./tsconfig.node.json" }],
