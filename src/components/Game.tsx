@@ -39,8 +39,8 @@ function Game({
     setGBState({ type: "setGameInput", payload: value.toUpperCase() });
 
     if (value.toUpperCase() === gbStates.randWord) {
-      setGBState({ type: "incrementDifficulty", payload: 0.01 })
-      setGBState({ type: "setWord" });
+      setGBState({type: "incrementDifficulty", payload : 0.01})
+      setGBState({ type: "setWord"});
       setGBState({ type: "setGameInput", payload: "" });
     }
   };
