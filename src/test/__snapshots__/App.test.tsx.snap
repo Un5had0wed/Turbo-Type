@@ -1,0 +1,199 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App Component reducer sets level and dFactor correctly 1`] = `
+<div
+  class="app"
+>
+  <div
+    class="form"
+  >
+    <form>
+      <img
+        alt="logo"
+        class="form__logo"
+        src="test-file-stub"
+      />
+      <div
+        class="heading__grp"
+      >
+        <h1
+          class="form__heading form__heading--main"
+        >
+          Turbo Type
+        </h1>
+        <span
+          class="form__heading form__heading--tagline"
+        >
+          Typing Triumph Challenge
+        </span>
+      </div>
+      <input
+        class="form__inp"
+        name="name"
+        placeholder="Enter your name"
+        required=""
+        type="text"
+        value=""
+      />
+      <select
+        class="form__select"
+        name="level"
+      >
+        <option
+          value="Medium"
+        >
+          Easy
+        </option>
+        <option
+          value="Medium"
+        >
+          Medium
+        </option>
+        <option
+          value="Hard"
+        >
+          Hard
+        </option>
+      </select>
+      <button
+        class="form__btn"
+        type="submit"
+      >
+        Start Game
+      </button>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`App Component reducer sets page mode correctly 1`] = `
+<div
+  class="app"
+>
+  <div
+    class="form"
+  >
+    <form>
+      <img
+        alt="logo"
+        class="form__logo"
+        src="test-file-stub"
+      />
+      <div
+        class="heading__grp"
+      >
+        <h1
+          class="form__heading form__heading--main"
+        >
+          Turbo Type
+        </h1>
+        <span
+          class="form__heading form__heading--tagline"
+        >
+          Typing Triumph Challenge
+        </span>
+      </div>
+      <input
+        class="form__inp"
+        name="name"
+        placeholder="Enter your name"
+        required=""
+        type="text"
+        value=""
+      />
+      <select
+        class="form__select"
+        name="level"
+      >
+        <option
+          value="Easy"
+        >
+          Easy
+        </option>
+        <option
+          value="Medium"
+        >
+          Medium
+        </option>
+        <option
+          value="Hard"
+        >
+          Hard
+        </option>
+      </select>
+      <button
+        class="form__btn"
+        type="submit"
+      >
+        Start Game
+      </button>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`App Component reducer sets user name correctly 1`] = `
+<div
+  class="app"
+>
+  <div
+    class="form"
+  >
+    <form>
+      <img
+        alt="logo"
+        class="form__logo"
+        src="test-file-stub"
+      />
+      <div
+        class="heading__grp"
+      >
+        <h1
+          class="form__heading form__heading--main"
+        >
+          Turbo Type
+        </h1>
+        <span
+          class="form__heading form__heading--tagline"
+        >
+          Typing Triumph Challenge
+        </span>
+      </div>
+      <input
+        class="form__inp"
+        name="name"
+        placeholder="Enter your name"
+        required=""
+        type="text"
+        value="John Doe"
+      />
+      <select
+        class="form__select"
+        name="level"
+      >
+        <option
+          value="Easy"
+        >
+          Easy
+        </option>
+        <option
+          value="Medium"
+        >
+          Medium
+        </option>
+        <option
+          value="Hard"
+        >
+          Hard
+        </option>
+      </select>
+      <button
+        class="form__btn"
+        type="submit"
+      >
+        Start Game
+      </button>
+    </form>
+  </div>
+</div>
+`;

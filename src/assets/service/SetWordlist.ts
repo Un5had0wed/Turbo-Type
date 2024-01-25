@@ -11,7 +11,7 @@ function SetWordlist(level: string) {
     wordList = dictionary?.filter((element) => {
       return element.length > 4 && element.length <= 8;
     });
-  } else {
+  } else if (level === "Hard") {
     wordList = dictionary?.filter((element) => {
       return element.length > 8;
     });
