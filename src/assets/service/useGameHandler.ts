@@ -47,9 +47,7 @@ function reducer(
       return {
         ...state,
         randWord: state.wordList[j].toUpperCase(),
-        wordTimer: Math.ceil(
-          state.wordList[j].length / state.dFactor
-        ),
+        wordTimer: Math.ceil(state.wordList[j].length / state.dFactor),
       };
     }
     case "decrementWordTimer":
@@ -99,42 +97,31 @@ function reducer(
         ...state,
         gameInput: action.payload as string,
       };
-    case "incrementDifficulty":{
+    case "incrementDifficulty": {
       const f: number = state.dFactor + (action.payload as number);
-      let d: string;
+      const d =
+        f >= 1 && f < 1.5 ? "Easy" : f >= 1.5 && f < 2 ? "Medium" : "Hard";
 
-      if(f>=1 && f<1.5)
-        d = "Easy";
-      else if(f>=1.5 && f<2)
-        d = "Medium"
-      else 
-        d = "Hard"
-
-      if(d !== state.difficulty)
-        return {
-          ...state,
-          dFactor: f,
-          difficulty: d as "Easy" | "Medium" | "Hard"
-        }
-      else
-        return {
-          ...state,
-          dFactor: f,
-          difficulty: d as "Easy" | "Medium" | "Hard",
-          wordList: SetWordlist(d)
-        }
+      return d !== state.difficulty
+        ? { ...state, dFactor: f, difficulty: d as "Easy" | "Medium" | "Hard" }
+        : {
+            ...state,
+            dFactor: f,
+            difficulty: d as "Easy" | "Medium" | "Hard",
+            wordList: SetWordlist(d),
+          };
     }
     case "setDifficulty":
       return {
         ...state,
         difficulty: action.payload as "Easy" | "Medium" | "Hard",
-        wordList: SetWordlist(action.payload as string)
-      }
+        wordList: SetWordlist(action.payload as string),
+      };
     case "setFactor":
       return {
         ...state,
-        dFactor: action.payload as number
-      }
+        dFactor: action.payload as number,
+      };
     default:
       return state;
   }
@@ -147,34 +134,30 @@ function useGameHandler(
 
   // timer for word
   useEffect(() => {
-    if (gameStates.wordTimer == 0) {
+    if (gameStates.wordTimer === 0) {
       dispatch({ type: "setGameMode" });
-      return;
+    } else {
+      const intervalId = setInterval(() => {
+        dispatch({ type: "decrementWordTimer" });
+      }, 1000);
+      return () => clearInterval(intervalId);
     }
-
-    const intervalId = setInterval(() => {
-      dispatch({ type: "decrementWordTimer" });
-    }, 1000);
-
-    return () => clearInterval(intervalId);
   }, [gameStates.wordTimer, gameStates.randWord]);
 
   // timer for the game
   useEffect(() => {
-    if (gameStates.wordTimer == 0) {
+    if (gameStates.wordTimer === 0) {
       dispatch({ type: "setAllScores" });
 
       if (gameStates.topScore.scoreTimer < gameStates.curScore.scoreTimer)
         dispatch({ type: "setTopScore" });
+    } else {
+      const scoreIntervalId = setInterval(() => {
+        dispatch({ type: "incrementScore" });
+      }, 1000);
 
-      return;
+      return () => clearInterval(scoreIntervalId);
     }
-
-    const scoreIntervalId = setInterval(() => {
-      dispatch({ type: "incrementScore" });
-    }, 1000);
-
-    return () => clearInterval(scoreIntervalId);
   }, [gameStates.curScore.scoreTimer]);
 
   return [gameStates, dispatch];
